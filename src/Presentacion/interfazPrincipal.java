@@ -232,7 +232,15 @@ public class interfazPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsuariosMouseEntered
 
     private void btnProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedorActionPerformed
-        // TODO add your handling code here:
+        interfazProveedores pagProveedores = new interfazProveedores();
+
+        pagProveedores.setSize(860,500);
+        pagProveedores.setLocation(0,0);
+
+        content.removeAll();
+        content.add(pagProveedores, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
     }//GEN-LAST:event_btnProveedorActionPerformed
 
     private void btnTransacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransacionesActionPerformed

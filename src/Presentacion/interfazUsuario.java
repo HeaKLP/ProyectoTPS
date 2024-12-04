@@ -22,6 +22,7 @@ public class interfazUsuario extends javax.swing.JPanel {
 
     public interfazUsuario() {
         initComponents();
+        hoverBotones();
         
         tipoUsuarioBO = new TipoUsuarioBO();
 
@@ -75,21 +76,39 @@ public class interfazUsuario extends javax.swing.JPanel {
 
         jLabel6.setText("Tipo de usuario:");
 
+        btnRegistrar.setBackground(new java.awt.Color(25, 80, 180));
+        btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("Agregar Registro");
+        btnRegistrar.setBorder(null);
+        btnRegistrar.setBorderPainted(false);
+        btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistrar.setFocusable(false);
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
             }
         });
 
+        btnEliminar.setBackground(new java.awt.Color(25, 80, 180));
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Eliminar Registro");
+        btnEliminar.setBorder(null);
+        btnEliminar.setBorderPainted(false);
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminar.setFocusPainted(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
 
+        btnEditar.setBackground(new java.awt.Color(25, 80, 180));
+        btnEditar.setForeground(new java.awt.Color(255, 255, 255));
         btnEditar.setText("Editar Registro");
+        btnEditar.setBorder(null);
+        btnEditar.setBorderPainted(false);
+        btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEditar.setFocusPainted(false);
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
@@ -106,14 +125,6 @@ public class interfazUsuario extends javax.swing.JPanel {
         bgFormulario.setLayout(bgFormularioLayout);
         bgFormularioLayout.setHorizontalGroup(
             bgFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bgFormularioLayout.createSequentialGroup()
-                .addGap(140, 140, 140)
-                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
-                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(bgFormularioLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(bgFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,6 +147,14 @@ public class interfazUsuario extends javax.swing.JPanel {
                     .addComponent(txtContraseñaUsuario)
                     .addComponent(cbxTipoUsuario, 0, 150, Short.MAX_VALUE))
                 .addGap(127, 127, 127))
+            .addGroup(bgFormularioLayout.createSequentialGroup()
+                .addGap(152, 152, 152)
+                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
+                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         bgFormularioLayout.setVerticalGroup(
             bgFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,11 +177,11 @@ public class interfazUsuario extends javax.swing.JPanel {
                     .addComponent(txtEmailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(cbxTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(bgFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegistrar)
-                    .addComponent(btnEliminar)
-                    .addComponent(btnEditar))
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26))
         );
 
@@ -384,4 +403,50 @@ public class interfazUsuario extends javax.swing.JPanel {
     }
 }
     
+    
+    public void hoverBotones(){
+        btnRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
+        @Override
+        public void mouseEntered(java.awt.event.MouseEvent evt) {
+            btnRegistrar.setBackground(new java.awt.Color(50, 150, 255)); // Color al pasar el mouse
+            btnRegistrar.setOpaque(true); // Asegura que se vea el cambio de color
+        }
+
+        @Override
+        public void mouseExited(java.awt.event.MouseEvent evt) {
+            btnRegistrar.setBackground(new java.awt.Color(25, 80, 180)); // Color original
+        }
+    });
+    
+       // btnEliminar
+    
+       
+       btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+        @Override
+        public void mouseEntered(java.awt.event.MouseEvent evt) {
+            btnEliminar.setBackground(new java.awt.Color(50, 150, 255)); // Color al pasar el mouse
+            btnEliminar.setOpaque(true); // Asegura que se vea el cambio de color
+        }
+
+        @Override
+        public void mouseExited(java.awt.event.MouseEvent evt) {
+            btnEliminar.setBackground(new java.awt.Color(25, 80, 180)); // Color original
+        }
+    });
+       
+       //btnEditar
+       
+       btnEditar.addMouseListener(new java.awt.event.MouseAdapter() {
+        @Override
+        public void mouseEntered(java.awt.event.MouseEvent evt) {
+            btnEditar.setBackground(new java.awt.Color(50, 150, 255)); // Color al pasar el mouse
+            btnEditar.setOpaque(true); // Asegura que se vea el cambio de color
+        }
+
+        @Override
+        public void mouseExited(java.awt.event.MouseEvent evt) {
+            btnEditar.setBackground(new java.awt.Color(25, 80, 180)); // Color original
+        }
+    });
+    }
 }
