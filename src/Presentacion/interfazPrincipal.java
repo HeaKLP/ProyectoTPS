@@ -6,6 +6,8 @@ public class interfazPrincipal extends javax.swing.JFrame {
 
     public interfazPrincipal() {
         initComponents();
+        
+        
         propiedadesBotones();
     }
     @SuppressWarnings("unchecked")

@@ -5,6 +5,7 @@ import Negocio.UsuarioBO;
 import Servicio.ConexionBD;
 import Servicio.TipoUsuarioDAO;
 import Servicio.UsuarioDAO;
+import java.awt.BorderLayout;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -55,8 +56,6 @@ public class interfazUsuario extends javax.swing.JPanel {
         bgUsuarios = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUsuarios = new javax.swing.JTable();
-
-        bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtTelUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,8 +184,6 @@ public class interfazUsuario extends javax.swing.JPanel {
                 .addGap(26, 26, 26))
         );
 
-        bg.add(bgFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 270));
-
         tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -211,7 +208,20 @@ public class interfazUsuario extends javax.swing.JPanel {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
         );
 
-        bg.add(bgUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 860, 220));
+        javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
+        bg.setLayout(bgLayout);
+        bgLayout.setHorizontalGroup(
+            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(bgFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(bgUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        bgLayout.setVerticalGroup(
+            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bgLayout.createSequentialGroup()
+                .addComponent(bgFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(bgUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -241,8 +251,7 @@ public class interfazUsuario extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-
-        cargarTabla();
+        editar();
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void cbxTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTipoUsuarioActionPerformed
@@ -403,7 +412,17 @@ public class interfazUsuario extends javax.swing.JPanel {
     }
 }
     
-    
+    private void editar(){
+        interfazEditarUsuario editarUsuarios = new interfazEditarUsuario();
+
+        editarUsuarios.setSize(860, 500);
+        editarUsuarios.setLocation(0, 0);
+
+        bg.removeAll();
+        bg.add(editarUsuarios, BorderLayout.CENTER);
+        bg.revalidate();
+        bg.repaint();
+    }
     public void hoverBotones(){
         btnRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
         @Override
