@@ -141,7 +141,7 @@ public class interfazPrincipal extends javax.swing.JFrame {
         btnProducto.setForeground(new java.awt.Color(255, 255, 255));
         btnProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/producto.png"))); // NOI18N
         btnProducto.setText("INVENTARIO");
-        btnProducto.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnProducto.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
         btnProducto.setBorderPainted(false);
         btnProducto.setContentAreaFilled(false);
         btnProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
