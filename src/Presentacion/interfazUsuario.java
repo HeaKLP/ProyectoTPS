@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
+import Presentacion.interfazEditarUsuario;
 
 
 
@@ -23,6 +24,7 @@ public class interfazUsuario extends javax.swing.JPanel {
 
     public interfazUsuario() {
         initComponents();
+        
         hoverBotones();
         
         tipoUsuarioBO = new TipoUsuarioBO();
@@ -76,6 +78,7 @@ public class interfazUsuario extends javax.swing.JPanel {
         jLabel6.setText("Tipo de usuario:");
 
         btnRegistrar.setBackground(new java.awt.Color(25, 80, 180));
+        btnRegistrar.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("Agregar Registro");
         btnRegistrar.setBorder(null);
@@ -89,6 +92,7 @@ public class interfazUsuario extends javax.swing.JPanel {
         });
 
         btnEliminar.setBackground(new java.awt.Color(25, 80, 180));
+        btnEliminar.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Eliminar Registro");
         btnEliminar.setBorder(null);
@@ -102,6 +106,7 @@ public class interfazUsuario extends javax.swing.JPanel {
         });
 
         btnEditar.setBackground(new java.awt.Color(25, 80, 180));
+        btnEditar.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnEditar.setForeground(new java.awt.Color(255, 255, 255));
         btnEditar.setText("Editar Registro");
         btnEditar.setBorder(null);
@@ -412,9 +417,21 @@ public class interfazUsuario extends javax.swing.JPanel {
     }
 }
     
-    private void editar(){
-        interfazEditarUsuario editarUsuarios = new interfazEditarUsuario();
+    private void editar() {
+    int filaSeleccionada = tblUsuarios.getSelectedRow();
 
+    if (filaSeleccionada != -1) {
+        // Obtener los datos del usuario seleccionado
+        int docUsuario = (int) tblUsuarios.getValueAt(filaSeleccionada, 0);
+        String nombreUsuario = (String) tblUsuarios.getValueAt(filaSeleccionada, 1);
+        String emailUsuario = (String) tblUsuarios.getValueAt(filaSeleccionada, 2);
+        String telUsuario = (String) tblUsuarios.getValueAt(filaSeleccionada, 3);
+        String tipoUsuario = (String) tblUsuarios.getValueAt(filaSeleccionada, 5);
+
+        // Crear instancia de interfazEditarUsuario y pasar los datos
+        interfazEditarUsuario editarUsuarios = new interfazEditarUsuario(docUsuario, nombreUsuario, emailUsuario, telUsuario, tipoUsuario);
+
+        // Configurar la nueva interfaz en el panel
         editarUsuarios.setSize(860, 500);
         editarUsuarios.setLocation(0, 0);
 
@@ -422,7 +439,11 @@ public class interfazUsuario extends javax.swing.JPanel {
         bg.add(editarUsuarios, BorderLayout.CENTER);
         bg.revalidate();
         bg.repaint();
+    } else {
+        JOptionPane.showMessageDialog(this, "Por favor selecciona un usuario para editar.");
     }
+}
+
     public void hoverBotones(){
         btnRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
         @Override
