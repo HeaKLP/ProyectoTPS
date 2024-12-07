@@ -277,7 +277,15 @@ public class interfazPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProveedorActionPerformed
 
     private void btnTransacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransacionesActionPerformed
-        // TODO add your handling code here:
+        interfaztransaccion pagProveedores = new interfaztransaccion();
+
+        pagProveedores.setSize(860,500);
+        pagProveedores.setLocation(0,0);
+
+        content.removeAll();
+        content.add(pagProveedores, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
     }//GEN-LAST:event_btnTransacionesActionPerformed
 
     private void btnCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoriasActionPerformed
