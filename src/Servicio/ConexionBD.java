@@ -11,7 +11,7 @@ public class ConexionBD {
         String user = "root";
         String password = "";
         int port = 3306;
-        String database = "drogueria";
+        String database = "sistemainventario";
         String url = "";
 
         try {
