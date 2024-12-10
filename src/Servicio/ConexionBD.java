@@ -10,8 +10,8 @@ public class ConexionBD {
         String host = "localhost";
         String user = "root";
         String password = "";
-        int port = 3306;
-        String database = "drogueria";
+        int port = 330;
+        String database = "sistemainventario";
         String url = "";
 
         try {
@@ -30,5 +30,9 @@ public class ConexionBD {
             System.out.println("Error al conectar a la BD: " + e.getMessage());
         }
         return con;
+    }
+
+    static Connection getConnection() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

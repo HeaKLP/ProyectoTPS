@@ -1,6 +1,7 @@
 package Presentacion;
 
 import java.awt.BorderLayout;
+import java.util.Locale;
 
 public class interfazPrincipal extends javax.swing.JFrame {
 
@@ -140,7 +141,7 @@ public class interfazPrincipal extends javax.swing.JFrame {
         btnProducto.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnProducto.setForeground(new java.awt.Color(255, 255, 255));
         btnProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/producto.png"))); // NOI18N
-        btnProducto.setText("INVENTARIO");
+        btnProducto.setText("PRODUCTOS");
         btnProducto.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
         btnProducto.setBorderPainted(false);
         btnProducto.setContentAreaFilled(false);
@@ -301,7 +302,15 @@ interfazCategoria pagCategoria = new interfazCategoria(this);
     }//GEN-LAST:event_btnCategoriasActionPerformed
 
     private void btnProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductoActionPerformed
-        // TODO add your handling code here:
+        interfazProductos pagProductos = new interfazProductos();
+
+        pagProductos .setSize(860,600);
+        pagProductos .setLocation(0,0);
+        
+        content.removeAll();
+        content.add(pagProductos , BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
     }//GEN-LAST:event_btnProductoActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
