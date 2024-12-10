@@ -46,6 +46,7 @@ public class interfazPrincipal extends javax.swing.JFrame {
         btnProducto = new javax.swing.JButton();
         btnTransaciones = new javax.swing.JButton();
         btnCategorias = new javax.swing.JButton();
+        btnEstadisticas = new javax.swing.JButton();
         content = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -192,6 +193,25 @@ public class interfazPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnEstadisticas.setBackground(new java.awt.Color(25, 80, 180));
+        btnEstadisticas.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnEstadisticas.setForeground(new java.awt.Color(255, 255, 255));
+        btnEstadisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/transaccion.png"))); // NOI18N
+        btnEstadisticas.setActionCommand("ESTADISTICAS");
+        btnEstadisticas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new javax.swing.ImageIcon(getClass().getResource("/Imagenes/inicio.png")))); // NOI18N
+        btnEstadisticas.setBorderPainted(false);
+        btnEstadisticas.setContentAreaFilled(false);
+        btnEstadisticas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEstadisticas.setFocusPainted(false);
+        btnEstadisticas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnEstadisticas.setIconTextGap(10);
+        btnEstadisticas.setLabel("ESTADISTICAS");
+        btnEstadisticas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEstadisticasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout opcionesLayout = new javax.swing.GroupLayout(opciones);
         opciones.setLayout(opcionesLayout);
         opcionesLayout.setHorizontalGroup(
@@ -202,6 +222,7 @@ public class interfazPrincipal extends javax.swing.JFrame {
             .addComponent(btnProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnCategorias, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
             .addComponent(btnTransaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnEstadisticas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         opcionesLayout.setVerticalGroup(
             opcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,7 +238,9 @@ public class interfazPrincipal extends javax.swing.JFrame {
                 .addComponent(btnCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnTransaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(btnEstadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(156, Short.MAX_VALUE))
         );
 
         bg.add(opciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 190, 500));
@@ -325,11 +348,25 @@ interfazCategoria pagCategoria = new interfazCategoria(this);
         content.repaint();   
     }//GEN-LAST:event_btnInicioActionPerformed
 
+    private void btnEstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadisticasActionPerformed
+        // TODO add your handling code here:
+        interfazEstadisticas pagEstadistica = new interfazEstadisticas();
+
+        pagEstadistica .setSize(860,600);
+        pagEstadistica .setLocation(0,0);
+        
+        content.removeAll();
+        content.add(pagEstadistica , BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_btnEstadisticasActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel banner;
     private javax.swing.JPanel bg;
     private javax.swing.JButton btnCategorias;
+    private javax.swing.JButton btnEstadisticas;
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnProducto;
     private javax.swing.JButton btnProveedor;
