@@ -2,6 +2,7 @@ package sigid;
 import Presentacion.interfazPrincipal;
 import Presentacion.interfazUsuario;
 import Servicio.ConexionBD;
+import Presentacion.interfazLogin;
 
 public class SIGID {
     

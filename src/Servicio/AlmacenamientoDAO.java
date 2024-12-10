@@ -6,20 +6,31 @@ public class AlmacenamientoDAO {
     
     }  
   //Atributos MER
-  private String TemperaturaAlmacenamiento;
+  private int CodigoAlmacenamiento;
+  private String temperaturaAlmacenamiento;
   private String DescripcionAlmacenamiento;
+
+    public int getCodigoAlmacenamiento() {
+        return CodigoAlmacenamiento;
+    }
+
+    public void setCodigoAlmacenamiento(int CodigoAlmacenamiento) {
+        this.CodigoAlmacenamiento = CodigoAlmacenamiento;
+    }
+
+
   
-  public AlmacenamientoDAO(String TemperaturaAlmacenamiento, String DescripcionAlmacenamiento){
-      this.TemperaturaAlmacenamiento = TemperaturaAlmacenamiento;
+  public AlmacenamientoDAO(String temperaturaAlmacenamiento, String DescripcionAlmacenamiento){
+      this.temperaturaAlmacenamiento = temperaturaAlmacenamiento;
       this.DescripcionAlmacenamiento = DescripcionAlmacenamiento;
   }
 
     public String getTemperaturaAlmacenamiento() {
-        return TemperaturaAlmacenamiento;
+        return temperaturaAlmacenamiento;
     }
 
     public void setTemperaturaAlmacenamiento(String TemperaturaAlmacenamiento) {
-        this.TemperaturaAlmacenamiento = TemperaturaAlmacenamiento;
+        this.temperaturaAlmacenamiento = TemperaturaAlmacenamiento;
     }
 
     public String getDescripcionAlmacenamiento() {

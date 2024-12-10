@@ -38,7 +38,6 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -52,7 +51,6 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="61" pref="61" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel4" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
                               </Group>
@@ -130,6 +128,9 @@
           <Dimension value="[265, 75]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLaboratorioActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnPresentacion">
       <Properties>
@@ -147,6 +148,9 @@
           <Dimension value="[265, 75]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPresentacionActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAlmacenamiento">
       <Properties>

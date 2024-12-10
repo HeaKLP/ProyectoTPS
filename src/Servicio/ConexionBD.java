@@ -10,7 +10,7 @@ public class ConexionBD {
         String host = "localhost";
         String user = "root";
         String password = "";
-        int port = 330;
+        int port = 3306;
         String database = "sistemainventario";
         String url = "";
 

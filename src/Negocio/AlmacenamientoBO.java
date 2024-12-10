@@ -9,17 +9,19 @@ import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
 
 public class AlmacenamientoBO {
-    public void guardarDatosAlmacenamiento(AlmacenamientoDAO obj, String TemperaturaAlmacenamiento, String DescripcionAlmacenamiento){
-        obj.setTemperaturaAlmacenamiento(TemperaturaAlmacenamiento);
+    public void guardarDatosAlmacenamiento(AlmacenamientoDAO obj, int CodigoAlmacenamiento, String temperaturaAlmacenamiento, String DescripcionAlmacenamiento){
+        obj.setCodigoAlmacenamiento(CodigoAlmacenamiento);
+        obj.setTemperaturaAlmacenamiento(temperaturaAlmacenamiento);
         obj.setDescripcionAlmacenamiento(DescripcionAlmacenamiento);
     }
     
     public void guardarDatosAlmacenamientoBD(AlmacenamientoDAO obj){
         Connection con = null;
         if ((con = ConexionBD.crearConexionBD()) != null) {try{
-            String query = "INSERT INTO almacenamiento (TemperaturaAlmacenamiento, DescripcionAlmacenamiento)" + "VALUES (?,?)";
+            String query = "INSERT INTO almacenamiento (temperaturaAlmacenamiento, DescripcionAlmacenamiento)" + "VALUES (?,?)";
             PreparedStatement ps = con.prepareStatement(query);
-                ps.setString(1, obj.getDescripcionAlmacenamiento());
+                ps.setString(1, obj.getTemperaturaAlmacenamiento());
+                ps.setString(2, obj.getDescripcionAlmacenamiento());
                 ps.execute();
                 System.out.println("Se agregaron los datos correctamente");
                 con.close(); 
@@ -31,6 +33,8 @@ public class AlmacenamientoBO {
     
     public DefaultTableModel obtenerModeloAlmacenamiento() {
     DefaultTableModel modelo = new DefaultTableModel();
+    modelo.addColumn("CodigoAlmacenamiento");
+    modelo.addColumn("temperaturaAlmacenamiento");
     modelo.addColumn("DescripcionAlmacenamiento");
     
     Connection con = null;
@@ -41,8 +45,9 @@ public class AlmacenamientoBO {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 modelo.addRow(new Object[]{
-                    rs.getInt("DescripcionAlmacenamiento"),
-                    
+                    rs.getInt("CodigoAlmacenamiento"),
+                    rs.getString("temperaturaAlmacenamiento"),
+                    rs.getString("DescripcionAlmacenamiento"),
                 });
             }
             con.close();

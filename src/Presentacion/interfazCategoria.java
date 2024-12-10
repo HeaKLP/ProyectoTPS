@@ -42,12 +42,22 @@ public class interfazCategoria extends javax.swing.JPanel {
         btnLaboratorio.setForeground(new java.awt.Color(255, 255, 255));
         btnLaboratorio.setText("Laboratorio");
         btnLaboratorio.setPreferredSize(new java.awt.Dimension(265, 75));
+        btnLaboratorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLaboratorioActionPerformed(evt);
+            }
+        });
 
         btnPresentacion.setBackground(new java.awt.Color(25, 80, 180));
         btnPresentacion.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnPresentacion.setForeground(new java.awt.Color(255, 255, 255));
         btnPresentacion.setText("Presentación");
         btnPresentacion.setPreferredSize(new java.awt.Dimension(265, 75));
+        btnPresentacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPresentacionActionPerformed(evt);
+            }
+        });
 
         btnAlmacenamiento.setBackground(new java.awt.Color(25, 80, 180));
         btnAlmacenamiento.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -120,8 +130,7 @@ public class interfazCategoria extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(20, 20, 20)
-                                        .addComponent(jLabel1)
-                                        .addGap(16, 16, 16))
+                                        .addComponent(jLabel1))
                                     .addComponent(jLabel2))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,8 +139,7 @@ public class interfazCategoria extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(38, 38, 38)
-                                        .addComponent(jLabel5)
-                                        .addGap(61, 61, 61))
+                                        .addComponent(jLabel5))
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(btnAlmacenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -182,6 +190,20 @@ public class interfazCategoria extends javax.swing.JPanel {
     principal.cambiarPanel(pagAlmacenamiento);
 
     }//GEN-LAST:event_btnAlmacenamientoActionPerformed
+
+    private void btnLaboratorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaboratorioActionPerformed
+        interfazLaboratorio pagLaboratorio = new interfazLaboratorio(principal);
+    
+    // Llamar al método cambiarPanel para actualizar el contenido con el nuevo panel
+    principal.cambiarPanel(pagLaboratorio);
+    }//GEN-LAST:event_btnLaboratorioActionPerformed
+
+    private void btnPresentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPresentacionActionPerformed
+        interfazPresentacion pagPresentacion = new interfazPresentacion(principal);
+    
+    // Llamar al método cambiarPanel para actualizar el contenido con el nuevo panel
+    principal.cambiarPanel(pagPresentacion);
+    }//GEN-LAST:event_btnPresentacionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -104,12 +104,12 @@ public class transaccionBO {
         paramTablaMostrar.setRowSorter(ordenarTabla);
 
         // Añadir columnas
-        modelo.addColumn("codigoTransaccion");
-        modelo.addColumn("tipoTransaccion");
-        modelo.addColumn("cantidadTransaccion");
-        modelo.addColumn("fechaTransaccion");
-        modelo.addColumn("totalTransaccion");
-        modelo.addColumn("descripcionTransaccion");
+        modelo.addColumn("Codigo de Transaccion");
+        modelo.addColumn("Tipo de Transaccion");
+        modelo.addColumn("Cantidad de Transacciones");
+        modelo.addColumn("Fecha de Transaccion");
+        modelo.addColumn("Total de Transaccion");
+        modelo.addColumn("Descripcion de Transaccion");
 
         // Asignar modelo al JTable
         paramTablaMostrar.setModel(modelo);

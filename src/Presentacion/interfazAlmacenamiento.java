@@ -19,6 +19,7 @@ public class interfazAlmacenamiento extends javax.swing.JPanel {
     public interfazAlmacenamiento(interfazPrincipal principal) {
     this.principal = principal;
     initComponents();
+    cargarTabla();
 }
 
     @SuppressWarnings("unchecked")
@@ -95,6 +96,11 @@ public class interfazAlmacenamiento extends javax.swing.JPanel {
         btnLaboratorio.setForeground(new java.awt.Color(255, 255, 255));
         btnLaboratorio.setText("Laboratorio");
         btnLaboratorio.setPreferredSize(new java.awt.Dimension(265, 75));
+        btnLaboratorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLaboratorioActionPerformed(evt);
+            }
+        });
 
         btnAlmacenamiento.setBackground(new java.awt.Color(33, 54, 130));
         btnAlmacenamiento.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -107,6 +113,11 @@ public class interfazAlmacenamiento extends javax.swing.JPanel {
         btnPresentacion.setForeground(new java.awt.Color(255, 255, 255));
         btnPresentacion.setText("Presentación");
         btnPresentacion.setPreferredSize(new java.awt.Dimension(265, 75));
+        btnPresentacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPresentacionActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel6.setText("Descripción de almacenamiento:");
@@ -203,6 +214,20 @@ public class interfazAlmacenamiento extends javax.swing.JPanel {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
     editar();
     }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnLaboratorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaboratorioActionPerformed
+        interfazLaboratorio pagLaboratorio = new interfazLaboratorio(principal);
+    
+    // Llamar al método cambiarPanel para actualizar el contenido con el nuevo panel
+    principal.cambiarPanel(pagLaboratorio);
+    }//GEN-LAST:event_btnLaboratorioActionPerformed
+
+    private void btnPresentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPresentacionActionPerformed
+        interfazPresentacion pagPresentacion = new interfazPresentacion(principal);
+    
+    // Llamar al método cambiarPanel para actualizar el contenido con el nuevo panel
+    principal.cambiarPanel(pagPresentacion);
+    }//GEN-LAST:event_btnPresentacionActionPerformed
   private void cargarTabla() {
     DefaultTableModel modelo = (DefaultTableModel) tblAlmacenamiento.getModel();
     modelo.setRowCount(0);
@@ -219,17 +244,18 @@ public class interfazAlmacenamiento extends javax.swing.JPanel {
         if (con != null) {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM almacenamiento");
-
+            while (rs.next()){
                 modelo.addRow(new Object[]{
                     rs.getInt("CodigoAlmacenamiento"), 
                     rs.getString("TemperaturaAlmacenamiento"), 
-                    rs.getString("DescripcionAlmacenamiento"),  
+                    rs.getString("DescripcionAlmacenamiento")  
                      });
                 }
-            } catch (SQLException e) {
+            }
+        } catch (SQLException e) {
         System.out.println("Error al obtener datos de almacenamiento: " + e.getMessage());
         }
-}
+    }
     
     private void registrar(){
         try {
@@ -291,15 +317,49 @@ public class interfazAlmacenamiento extends javax.swing.JPanel {
 } 
    
    private void editar(){
-        interfazEditarAlmacenamiento editarAlmacenamiento = new interfazEditarAlmacenamiento();
+        int filaSeleccionada = tblAlmacenamiento.getSelectedRow(); // Obtén la fila seleccionada de la tabla
 
-        editarAlmacenamiento.setSize(860, 500);
-        editarAlmacenamiento.setLocation(0, 0);
+    if (filaSeleccionada != -1) {
+        // Obtén los datos actuales de la fila seleccionada
+        int CodigoAlmacenamiento = (int) tblAlmacenamiento.getValueAt(filaSeleccionada, 0);
+        String TemperaturaAlmacenamiento = (String) tblAlmacenamiento.getValueAt(filaSeleccionada, 1);
+        String DescripcionAlmacenamiento = (String) tblAlmacenamiento.getValueAt(filaSeleccionada, 2);
+        
+        // Solicita nuevos datos al usuario con valores actuales como sugerencia
+        String nuevaTemperatura = JOptionPane.showInputDialog(this, "Editar temperatura de almacenamiento:", TemperaturaAlmacenamiento);
+        String nuevaDescripcion = JOptionPane.showInputDialog(this, "Editar descripción de almacenamiento:", DescripcionAlmacenamiento);
+        // Verifica si el usuario ingresó un nuevo nombre válido
+        if (nuevaTemperatura != null && !nuevaTemperatura.trim().isEmpty() && nuevaDescripcion != null && !nuevaDescripcion.trim().isEmpty()) {
+            try {
+                // Establece conexión con la base de datos
+                Connection con = ConexionBD.crearConexionBD();
+                if (con != null) {
+                    String sql = "UPDATE almacenamiento SET temperaturaAlmacenamiento = ?, descripcionAlmacenamiento = ? WHERE CodigoAlmacenamiento = ?";
+                    PreparedStatement pst = con.prepareStatement(sql);
 
-        bg.removeAll();
-        bg.add(editarAlmacenamiento, BorderLayout.CENTER);
-        bg.revalidate();
-        bg.repaint();
+                    // Establece los valores en la consulta
+                    pst.setString(1, nuevaTemperatura);
+                    pst.setString(2, nuevaDescripcion);
+                    pst.setInt(3, CodigoAlmacenamiento);
+
+                    // Ejecuta la actualización
+                    int filasAfectadas = pst.executeUpdate();
+                    if (filasAfectadas > 0) {
+                        JOptionPane.showMessageDialog(this, "Almacenamiento editado correctamente.");
+                        cargarTabla(); // Refresca la tabla para mostrar los cambios
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Error al editar el almacenamiento.");
+                    }
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, "Error al editar el almacenamiento: " + e.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "La temperatura del almacenamiento no puede estar vacía.");
+        }
+    } else {
+        JOptionPane.showMessageDialog(this, "Por favor selecciona un almacenamiento para editar.");
+    }
     }
 
 

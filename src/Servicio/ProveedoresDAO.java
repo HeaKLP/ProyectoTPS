@@ -1,83 +1,85 @@
 package Servicio;
 
+
 public class ProveedoresDAO {
     
-    private int codigo;
-    private String nombre;
-    private String NIT;
-    private String telefono;
-    private String direccion;
-    private String correo;
-    private String nombre_contacto;
-
-    public ProveedoresDAO(String nombre, String NIT, String telefono, String direccion, String correo, String nombre_contacto) {
-        this.codigo = codigo;
-        this.nombre = nombre;
-        this.NIT = NIT;
-        this.telefono = telefono;
-        this.direccion = direccion;
-        this.correo = correo;
-        this.nombre_contacto = nombre_contacto;
-    }
-
     public ProveedoresDAO() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    // Constructor vacío por defecto
+    }
+    
+    private int codProveedores;
+    private String nombreProveedores;
+    private String NITProveedores;
+    private String telProveedores;
+    private String dirProveedores;
+    private String correoProveedores;
+    private String NombreContactoProveedor;
+
+    public ProveedoresDAO(int codProveedores,String nombreProveedores,String NITProveedores,String telProveedores,String dirProveedores,String correoProveedores,String NombreContactoProveedor) {
+        this.codProveedores = codProveedores;
+        this.nombreProveedores = nombreProveedores;
+        this.NITProveedores = NITProveedores;
+        this.telProveedores = telProveedores;
+        this.dirProveedores = dirProveedores;
+        this.correoProveedores = correoProveedores;
+        this.NombreContactoProveedor = NombreContactoProveedor;
     }
 
-    public int getCodigo() {
-        return codigo;
+
+    public int getcodProveedores() {
+        return codProveedores;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setcodProveedores(int codProveedores) {
+        this.codProveedores = codProveedores;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getnombreProveedores() {
+        return nombreProveedores;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setnombreProveedores(String nombreProveedores) {
+        this.nombreProveedores = nombreProveedores;
     }
 
-    public String getNIT() {
-        return NIT;
+    public String getNITProveedores() {
+        return NITProveedores;
     }
 
-    public void setNIT(String NIT) {
-        this.NIT = NIT;
+    public void setNITProveedores(String NITProveedores) {
+        this.NITProveedores = NITProveedores;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String gettelProveedores() {
+        return telProveedores;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void settelProveedores(String telProveedores) {
+        this.telProveedores = telProveedores;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getdirProveedores() {
+        return dirProveedores;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setdirProveedores(String dirProveedores) {
+        this.dirProveedores = dirProveedores;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getcorreoProveedores() {
+        return correoProveedores;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setcorreoProveedores(String correoProveedores) {
+        this.correoProveedores = correoProveedores;
     }
 
-    public String getNombre_contacto() {
-        return nombre_contacto;
+    public String getNombreContactoProveedor() {
+        return NombreContactoProveedor;
     }
 
-    public void setNombre_contacto(String nombre_contacto) {
-        this.nombre_contacto = nombre_contacto;
+    public void setNombreContactoProveedor(String NombreContactoProveedor) {
+        this.NombreContactoProveedor = NombreContactoProveedor;
     }
  
         
