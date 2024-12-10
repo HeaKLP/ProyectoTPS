@@ -1,114 +1,107 @@
 package Presentacion;
 
+
+import Servicio.ConexionBD;
 import Negocio.ProveedoresBO;
 import Servicio.ProveedoresDAO;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+
+
+
 
 public class interfazProveedores extends javax.swing.JPanel {
+    
+    ProveedoresBO operacion = new ProveedoresBO();
 
     public interfazProveedores() {
         initComponents();
+        operacion.cargarDatosEnTabla(tablaproveedores);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtTelefono = new javax.swing.JTextField();
+        txttelProveedores = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
+        txtnombreProveedores = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtNIT = new javax.swing.JTextField();
+        txtNITProveedores = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtDireccion = new javax.swing.JTextField();
+        txtdirProveedores = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtNombreContacto = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtCorreo = new javax.swing.JTextField();
-        btnguardar = new javax.swing.JButton();
-        btnactualizar = new javax.swing.JButton();
-        btncerrar = new javax.swing.JButton();
+        txtcorreoProveedores = new javax.swing.JTextField();
+        txtNombreContactoProveedor = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaproveedores = new javax.swing.JTable();
+        btnguardar = new javax.swing.JButton();
+        btneliminar = new javax.swing.JButton();
+        btneditar = new javax.swing.JButton();
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LOGO SIN FONDO (3) (3).png"))); // NOI18N
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FORMULARIO PROVEEDORES", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setText("Codigo proveedor:");
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FORMULARIO PROVEEDORES", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Nombre Proveedor:");
 
-        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
+        txttelProveedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefonoActionPerformed(evt);
+                txttelProveedoresActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("NIT Proveedores:");
 
+        txtnombreProveedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnombreProveedoresActionPerformed(evt);
+            }
+        });
+
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Telefono Proveedor:");
 
-        txtNIT.addActionListener(new java.awt.event.ActionListener() {
+        txtNITProveedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNITActionPerformed(evt);
+                txtNITProveedoresActionPerformed(evt);
             }
         });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Direccion Proveedor:");
 
-        txtDireccion.addActionListener(new java.awt.event.ActionListener() {
+        txtdirProveedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDireccionActionPerformed(evt);
+                txtdirProveedoresActionPerformed(evt);
             }
         });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("Correo Proveedor:");
 
-        txtNombreContacto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreContactoActionPerformed(evt);
-            }
-        });
-
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setText("Nombre contacto Proveedor:");
 
-        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
+        txtcorreoProveedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCorreoActionPerformed(evt);
+                txtcorreoProveedoresActionPerformed(evt);
             }
         });
 
-        btnguardar.setText("GUARDAR");
-        btnguardar.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreContactoProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnguardarActionPerformed(evt);
-            }
-        });
-
-        btnactualizar.setText("ACTUALIZAR");
-        btnactualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnactualizarActionPerformed(evt);
-            }
-        });
-
-        btncerrar.setText("CERRAR");
-        btncerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncerrarActionPerformed(evt);
+                txtNombreContactoProveedorActionPerformed(evt);
             }
         });
 
@@ -117,102 +110,103 @@ public class interfazProveedores extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(btncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnactualizar)
-                .addGap(46, 46, 46))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(jLabel5)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNIT, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNombreContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(97, Short.MAX_VALUE))
+                        .addComponent(jLabel3)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txttelProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtnombreProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNITProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel8))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtdirProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtcorreoProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombreContactoProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtNIT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7)
-                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtNombreContacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(138, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnguardar)
-                    .addComponent(btncerrar)
-                    .addComponent(btnactualizar))
-                .addGap(76, 76, 76))
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel6)
+                                    .addComponent(txtdirProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(49, 49, 49))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtcorreoProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7))
+                                .addGap(15, 15, 15)))
+                        .addComponent(txtNombreContactoProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(txtnombreProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtNITProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(txttelProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))))
+                .addGap(77, 77, 77))
         );
 
         tablaproveedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Nombre proveedor", "NIT", "Telefono", "Direccion", "Correo", "Nombre contacto"
             }
         ));
+        tablaproveedores.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        tablaproveedores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaproveedoresMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaproveedores);
+
+        btnguardar.setText("Guardar proveedor");
+        btnguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardarActionPerformed(evt);
+            }
+        });
+
+        btneliminar.setText("Eliminar proveedor");
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarActionPerformed(evt);
+            }
+        });
+
+        btneditar.setText("Editar Proveedor");
+        btneditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneditarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -220,67 +214,108 @@ public class interfazProveedores extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 836, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 12, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(193, 193, 193)
+                .addComponent(btnguardar)
+                .addGap(27, 27, 27)
+                .addComponent(btneliminar)
+                .addGap(26, 26, 26)
+                .addComponent(btneditar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(320, 320, 320))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnguardar)
+                    .addComponent(btneliminar)
+                    .addComponent(btneditar))
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+    private void txttelProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttelProveedoresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonoActionPerformed
+    }//GEN-LAST:event_txttelProveedoresActionPerformed
 
-    private void txtNITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNITActionPerformed
+    private void txtNITProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNITProveedoresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNITActionPerformed
+    }//GEN-LAST:event_txtNITProveedoresActionPerformed
 
-    private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionActionPerformed
+    private void txtdirProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdirProveedoresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDireccionActionPerformed
+    }//GEN-LAST:event_txtdirProveedoresActionPerformed
 
-    private void txtNombreContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreContactoActionPerformed
+    private void txtNombreContactoProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreContactoProveedorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreContactoActionPerformed
+    }//GEN-LAST:event_txtNombreContactoProveedorActionPerformed
 
-    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
+    private void txtcorreoProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcorreoProveedoresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCorreoActionPerformed
+    }//GEN-LAST:event_txtcorreoProveedoresActionPerformed
 
-    private void btncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncerrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btncerrarActionPerformed
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+      operacion.eliminar(tablaproveedores);
+      operacion.cargarDatosEnTabla(tablaproveedores);
+    }//GEN-LAST:event_btneliminarActionPerformed
 
-    private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnactualizarActionPerformed
+    private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
+     editar();
+     operacion.cargarDatosEnTabla(tablaproveedores);
+    }//GEN-LAST:event_btneditarActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-        // TODO add your handling code here:
+        guardar();
+        operacion.cargarDatosEnTabla(tablaproveedores);
     }//GEN-LAST:event_btnguardarActionPerformed
+
+    private void txtnombreProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreProveedoresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnombreProveedoresActionPerformed
+
+    private void tablaproveedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaproveedoresMouseClicked
+        
+int filaSeleccionada = tablaproveedores.getSelectedRow();
+
+
+if (filaSeleccionada != -1) {
+    
+    String nombre = tablaproveedores.getValueAt(filaSeleccionada, 1).toString(); 
+    String nit = tablaproveedores.getValueAt(filaSeleccionada, 2).toString(); 
+    String telefono = tablaproveedores.getValueAt(filaSeleccionada, 3).toString(); 
+    String direccion = tablaproveedores.getValueAt(filaSeleccionada, 4).toString(); 
+    String correo = tablaproveedores.getValueAt(filaSeleccionada, 5).toString(); 
+    String nombrecontacto = tablaproveedores.getValueAt(filaSeleccionada, 6).toString(); 
+    
+    
+    txtnombreProveedores.setText(nombre);
+    txtNITProveedores.setText(nit);
+    txttelProveedores.setText(telefono);
+    txtdirProveedores.setText(direccion);
+    txtcorreoProveedores.setText(correo);
+    txtNombreContactoProveedor.setText(nombrecontacto);
+} else {
+    JOptionPane.showMessageDialog(null, "Seleccione un registro para editar.");
+}
+
+    }//GEN-LAST:event_tablaproveedoresMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnactualizar;
-    public javax.swing.JButton btncerrar;
+    public javax.swing.JButton btneditar;
+    public javax.swing.JButton btneliminar;
     public javax.swing.JButton btnguardar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -290,52 +325,96 @@ public class interfazProveedores extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tablaproveedores;
-    public javax.swing.JTextField txtCodigo;
-    public javax.swing.JTextField txtCorreo;
-    public javax.swing.JTextField txtDireccion;
-    public javax.swing.JTextField txtNIT;
-    public javax.swing.JTextField txtNombre;
-    public javax.swing.JTextField txtNombreContacto;
-    public javax.swing.JTextField txtTelefono;
+    public javax.swing.JTextField txtNITProveedores;
+    public javax.swing.JTextField txtNombreContactoProveedor;
+    public javax.swing.JTextField txtcorreoProveedores;
+    public javax.swing.JTextField txtdirProveedores;
+    public javax.swing.JTextField txtnombreProveedores;
+    public javax.swing.JTextField txttelProveedores;
     // End of variables declaration//GEN-END:variables
 
-    
-    private void registrar(){
-        try {
-        ProveedoresDAO proveedor = new ProveedoresDAO();
+
+ public void guardar(){
+ try {
+        ProveedoresBO ProveedoresBO = new ProveedoresBO();
+        ProveedoresDAO ProveedoresDAO = new ProveedoresDAO();
+
+        String nombreProveedores = txtnombreProveedores.getText();
+        String NITProveedores = txtNITProveedores.getText();
+        String telProveedores = txttelProveedores.getText();
+        String dirProveedores = txtdirProveedores.getText();
+        String correoProveedores = txtcorreoProveedores.getText();
+        String NombreContactoProveedor = txtNombreContactoProveedor.getText();
+
+
+        ProveedoresDAO.setnombreProveedores(nombreProveedores);
+        ProveedoresDAO.setNITProveedores(NITProveedores);
+        ProveedoresDAO.settelProveedores(telProveedores);
+        ProveedoresDAO.setdirProveedores(dirProveedores);
+        ProveedoresDAO.setcorreoProveedores(correoProveedores);
+        ProveedoresDAO.setNombreContactoProveedor(NombreContactoProveedor);
+
+        ProveedoresBO.guardarDatos(ProveedoresDAO);
         
-        proveedor.setNombre(txtNombre.getText());
-        proveedor.setNIT(txtNIT.getText());
-        proveedor.setTelefono(txtTelefono.getText());
-        proveedor.setDireccion(txtDireccion.getText());
-        proveedor.setCorreo(txtCorreo.getText());
-        proveedor.setNombre_contacto(txtNombreContacto.getText());
+                
         
-        if (proveedor.getNombre().isEmpty() || 
-            proveedor.getNIT().isEmpty() || 
-            proveedor.getTelefono().isEmpty() || 
-            proveedor.getDireccion().isEmpty() || 
-            proveedor.getCorreo().isEmpty() || 
-            proveedor.getNombre_contacto().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        ProveedoresBO crud = new ProveedoresBO();
-        crud.registrarbd(proveedor);
-        
-        limpiarCampos();
+
+        JOptionPane.showMessageDialog(this, "Proveedor registrado correctamente.");
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Por favor ingresa datos válidos: " + e.getMessage());
     } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error al registrar proveedor: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Error al registrar el usuario: " + e.getMessage());
     }
-    }
-    
-    private void limpiarCampos() {
-    txtNombre.setText("");
-    txtNIT.setText("");
-    txtTelefono.setText("");
-    txtDireccion.setText("");
-    txtCorreo.setText("");
-    txtNombreContacto.setText("");
+
+ 
+ }
+
+ public void editar() {
+    ProveedoresBO proveedoresBO = new ProveedoresBO();
+
+    btneditar.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            int filaSeleccionada = tablaproveedores.getSelectedRow();
+            if (filaSeleccionada != -1) {
+                try {
+                    int codProveedores = Integer.parseInt(tablaproveedores.getValueAt(filaSeleccionada, 0).toString());
+                    String nombreProveedores = txtnombreProveedores.getText();
+                    String NITProveedores = txtNITProveedores.getText();
+                    String telProveedores = txttelProveedores.getText();
+                    String dirProveedores = txtdirProveedores.getText();
+                    String correoProveedores = txtcorreoProveedores.getText();
+                    String NombreContactoProveedor = txtNombreContactoProveedor.getText();
+
+                    if (!nombreProveedores.isEmpty() && !NITProveedores.isEmpty() && !telProveedores.isEmpty() && !dirProveedores.isEmpty() && !correoProveedores.isEmpty() && !NombreContactoProveedor.isEmpty()) {
+                        
+                        proveedoresBO.actualizarProveedor(codProveedores, nombreProveedores, NITProveedores, telProveedores, dirProveedores, correoProveedores, NombreContactoProveedor);
+
+                        
+                        JOptionPane.showMessageDialog(null, "Registro actualizado correctamente.");
+                        operacion.cargarDatosEnTabla(tablaproveedores);
+
+                        
+                        txtnombreProveedores.setText("");
+                        txtNITProveedores.setText("");
+                        txttelProveedores.setText("");
+                        txtdirProveedores.setText("");
+                        txtcorreoProveedores.setText("");
+                        txtNombreContactoProveedor.setText("");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos.");
+                    }
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Error al actualizar los datos: " + ex.getMessage());
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Seleccione un registro para editar.");
+            }
+        }
+    });
 }
+ 
+
 }
+
+ 
+
