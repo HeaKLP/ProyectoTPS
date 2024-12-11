@@ -53,7 +53,7 @@ public class interfazLaboratorio extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tablaLaboratorios);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(180, 250, 510, 200);
+        jScrollPane1.setBounds(10, 290, 850, 200);
 
         nombreTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         nombreTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -62,10 +62,10 @@ public class interfazLaboratorio extends javax.swing.JPanel {
             }
         });
         add(nombreTextField);
-        nombreTextField.setBounds(280, 180, 330, 20);
+        nombreTextField.setBounds(340, 160, 204, 28);
 
         agregarButton.setBackground(new java.awt.Color(25, 80, 180));
-        agregarButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        agregarButton.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         agregarButton.setForeground(new java.awt.Color(255, 255, 255));
         agregarButton.setText("Agregar");
         agregarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -74,10 +74,10 @@ public class interfazLaboratorio extends javax.swing.JPanel {
             }
         });
         add(agregarButton);
-        agregarButton.setBounds(230, 210, 130, 20);
+        agregarButton.setBounds(180, 250, 150, 30);
 
         editarButton.setBackground(new java.awt.Color(25, 80, 180));
-        editarButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        editarButton.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         editarButton.setForeground(new java.awt.Color(255, 255, 255));
         editarButton.setText("Editar");
         editarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -86,10 +86,10 @@ public class interfazLaboratorio extends javax.swing.JPanel {
             }
         });
         add(editarButton);
-        editarButton.setBounds(370, 210, 120, 20);
+        editarButton.setBounds(560, 250, 150, 30);
 
         eliminarButton.setBackground(new java.awt.Color(25, 80, 180));
-        eliminarButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        eliminarButton.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         eliminarButton.setForeground(new java.awt.Color(255, 255, 255));
         eliminarButton.setText("Eliminar");
         eliminarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -98,16 +98,17 @@ public class interfazLaboratorio extends javax.swing.JPanel {
             }
         });
         add(eliminarButton);
-        eliminarButton.setBounds(500, 210, 140, 20);
+        eliminarButton.setBounds(370, 250, 150, 30);
 
-        nombreLabel.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        nombreLabel.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         nombreLabel.setText("Nombre del Laboratorio:");
         add(nombreLabel);
-        nombreLabel.setBounds(360, 150, 190, 20);
+        nombreLabel.setBounds(360, 130, 190, 20);
 
         btnPresentacion.setBackground(new java.awt.Color(25, 80, 180));
         btnPresentacion.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnPresentacion.setForeground(new java.awt.Color(255, 255, 255));
+        btnPresentacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/laboratorio_1.png"))); // NOI18N
         btnPresentacion.setText("Presentación");
         btnPresentacion.setPreferredSize(new java.awt.Dimension(265, 75));
         btnPresentacion.addActionListener(new java.awt.event.ActionListener() {
@@ -116,11 +117,12 @@ public class interfazLaboratorio extends javax.swing.JPanel {
             }
         });
         add(btnPresentacion);
-        btnPresentacion.setBounds(600, 10, 250, 90);
+        btnPresentacion.setBounds(600, 10, 265, 75);
 
         btnLaboratorio.setBackground(new java.awt.Color(33, 54, 130));
         btnLaboratorio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnLaboratorio.setForeground(new java.awt.Color(255, 255, 255));
+        btnLaboratorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/laboratorio.png"))); // NOI18N
         btnLaboratorio.setText("Laboratorio");
         btnLaboratorio.setPreferredSize(new java.awt.Dimension(265, 75));
         btnLaboratorio.addActionListener(new java.awt.event.ActionListener() {
@@ -129,11 +131,12 @@ public class interfazLaboratorio extends javax.swing.JPanel {
             }
         });
         add(btnLaboratorio);
-        btnLaboratorio.setBounds(10, 10, 270, 90);
+        btnLaboratorio.setBounds(10, 10, 265, 75);
 
         btnAlmacenamiento.setBackground(new java.awt.Color(25, 80, 180));
         btnAlmacenamiento.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnAlmacenamiento.setForeground(new java.awt.Color(255, 255, 255));
+        btnAlmacenamiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/almacenamiento.png"))); // NOI18N
         btnAlmacenamiento.setText("Almacenamiento");
         btnAlmacenamiento.setPreferredSize(new java.awt.Dimension(265, 75));
         btnAlmacenamiento.addActionListener(new java.awt.event.ActionListener() {
@@ -142,7 +145,7 @@ public class interfazLaboratorio extends javax.swing.JPanel {
             }
         });
         add(btnAlmacenamiento);
-        btnAlmacenamiento.setBounds(310, 10, 260, 90);
+        btnAlmacenamiento.setBounds(310, 10, 265, 75);
     }// </editor-fold>//GEN-END:initComponents
 
     private void nombreTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreTextFieldActionPerformed
