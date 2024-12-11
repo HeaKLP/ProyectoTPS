@@ -340,35 +340,46 @@ if (filaSeleccionada != -1) {
 
  public void guardar(){
  try {
-        ProveedoresBO ProveedoresBO = new ProveedoresBO();
-        ProveedoresDAO ProveedoresDAO = new ProveedoresDAO();
+    ProveedoresBO ProveedoresBO = new ProveedoresBO();
+    ProveedoresDAO ProveedoresDAO = new ProveedoresDAO();
 
-        String nombreProveedores = txtnombreProveedores.getText();
-        String NITProveedores = txtNITProveedores.getText();
-        String telProveedores = txttelProveedores.getText();
-        String dirProveedores = txtdirProveedores.getText();
-        String correoProveedores = txtcorreoProveedores.getText();
-        String NombreContactoProveedor = txtNombreContactoProveedor.getText();
+    String nombreProveedores = txtnombreProveedores.getText();
+    String NITProveedores = txtNITProveedores.getText();
+    String telProveedores = txttelProveedores.getText();
+    String dirProveedores = txtdirProveedores.getText();
+    String correoProveedores = txtcorreoProveedores.getText();
+    String NombreContactoProveedor = txtNombreContactoProveedor.getText();
 
+    // Validación de datos vacíos
+    if (nombreProveedores == null || nombreProveedores.trim().isEmpty() ||
+        NITProveedores == null || NITProveedores.trim().isEmpty() ||
+        telProveedores == null || telProveedores.trim().isEmpty() ||
+        dirProveedores == null || dirProveedores.trim().isEmpty() ||
+        correoProveedores == null || correoProveedores.trim().isEmpty() ||
+        NombreContactoProveedor == null || NombreContactoProveedor.trim().isEmpty()) {
 
-        ProveedoresDAO.setnombreProveedores(nombreProveedores);
-        ProveedoresDAO.setNITProveedores(NITProveedores);
-        ProveedoresDAO.settelProveedores(telProveedores);
-        ProveedoresDAO.setdirProveedores(dirProveedores);
-        ProveedoresDAO.setcorreoProveedores(correoProveedores);
-        ProveedoresDAO.setNombreContactoProveedor(NombreContactoProveedor);
-
-        ProveedoresBO.guardarDatos(ProveedoresDAO);
-        
-                
-        
-
-        JOptionPane.showMessageDialog(this, "Proveedor registrado correctamente.");
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "Por favor ingresa datos válidos: " + e.getMessage());
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error al registrar el usuario: " + e.getMessage());
+        JOptionPane.showMessageDialog(this, "Error: No se pueden registrar campos vacíos.");
+        return; // Detiene la operación si algún campo está vacío
     }
+
+    // Configurar datos para enviar
+    ProveedoresDAO.setnombreProveedores(nombreProveedores);
+    ProveedoresDAO.setNITProveedores(NITProveedores);
+    ProveedoresDAO.settelProveedores(telProveedores);
+    ProveedoresDAO.setdirProveedores(dirProveedores);
+    ProveedoresDAO.setcorreoProveedores(correoProveedores);
+    ProveedoresDAO.setNombreContactoProveedor(NombreContactoProveedor);
+
+    // Enviar datos a la lógica de negocio
+    ProveedoresBO.guardarDatos(ProveedoresDAO);
+
+    JOptionPane.showMessageDialog(this, "Proveedor registrado correctamente.");
+} catch (NumberFormatException e) {
+    JOptionPane.showMessageDialog(this, "Por favor ingresa datos válidos: " + e.getMessage());
+} catch (Exception e) {
+    JOptionPane.showMessageDialog(this, "Error al registrar el usuario: " + e.getMessage());
+}
+
 
  
  }
