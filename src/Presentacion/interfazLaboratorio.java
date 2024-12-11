@@ -53,7 +53,7 @@ public class interfazLaboratorio extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tablaLaboratorios);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(10, 290, 850, 200);
+        jScrollPane1.setBounds(40, 290, 800, 200);
 
         nombreTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         nombreTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +117,7 @@ public class interfazLaboratorio extends javax.swing.JPanel {
             }
         });
         add(btnPresentacion);
-        btnPresentacion.setBounds(600, 10, 265, 75);
+        btnPresentacion.setBounds(580, 10, 265, 75);
 
         btnLaboratorio.setBackground(new java.awt.Color(33, 54, 130));
         btnLaboratorio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -131,7 +131,7 @@ public class interfazLaboratorio extends javax.swing.JPanel {
             }
         });
         add(btnLaboratorio);
-        btnLaboratorio.setBounds(10, 10, 265, 75);
+        btnLaboratorio.setBounds(40, 10, 265, 75);
 
         btnAlmacenamiento.setBackground(new java.awt.Color(25, 80, 180));
         btnAlmacenamiento.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
