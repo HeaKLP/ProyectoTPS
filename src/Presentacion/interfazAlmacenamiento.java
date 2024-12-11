@@ -94,6 +94,7 @@ public class interfazAlmacenamiento extends javax.swing.JPanel {
         btnLaboratorio.setBackground(new java.awt.Color(25, 80, 180));
         btnLaboratorio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnLaboratorio.setForeground(new java.awt.Color(255, 255, 255));
+        btnLaboratorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/laboratorio.png"))); // NOI18N
         btnLaboratorio.setText("Laboratorio");
         btnLaboratorio.setPreferredSize(new java.awt.Dimension(265, 75));
         btnLaboratorio.addActionListener(new java.awt.event.ActionListener() {
@@ -105,12 +106,14 @@ public class interfazAlmacenamiento extends javax.swing.JPanel {
         btnAlmacenamiento.setBackground(new java.awt.Color(33, 54, 130));
         btnAlmacenamiento.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnAlmacenamiento.setForeground(new java.awt.Color(255, 255, 255));
+        btnAlmacenamiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/almacenamiento.png"))); // NOI18N
         btnAlmacenamiento.setText("Almacenamiento");
         btnAlmacenamiento.setPreferredSize(new java.awt.Dimension(265, 75));
 
         btnPresentacion.setBackground(new java.awt.Color(25, 80, 180));
         btnPresentacion.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnPresentacion.setForeground(new java.awt.Color(255, 255, 255));
+        btnPresentacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/laboratorio_1.png"))); // NOI18N
         btnPresentacion.setText("Presentación");
         btnPresentacion.setPreferredSize(new java.awt.Dimension(265, 75));
         btnPresentacion.addActionListener(new java.awt.event.ActionListener() {
