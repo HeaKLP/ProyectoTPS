@@ -49,7 +49,7 @@ public class interfazProveedores extends javax.swing.JPanel {
         btneliminar = new javax.swing.JButton();
         btneditar = new javax.swing.JButton();
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel3.setText("Nombre Proveedor:");
 
         txttelProveedores.addActionListener(new java.awt.event.ActionListener() {
@@ -58,7 +58,7 @@ public class interfazProveedores extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel4.setText("NIT Proveedores:");
 
         txtnombreProveedores.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +67,7 @@ public class interfazProveedores extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel5.setText("Telefono Proveedor:");
 
         txtNITProveedores.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +76,7 @@ public class interfazProveedores extends javax.swing.JPanel {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel6.setText("Direccion Proveedor:");
 
         txtdirProveedores.addActionListener(new java.awt.event.ActionListener() {
@@ -85,10 +85,10 @@ public class interfazProveedores extends javax.swing.JPanel {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel7.setText("Correo Proveedor:");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabel8.setText("Nombre contacto Proveedor:");
 
         txtcorreoProveedores.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +119,7 @@ public class interfazProveedores extends javax.swing.JPanel {
                     .addComponent(txttelProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtnombreProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNITProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel7)
                     .addComponent(jLabel6)
@@ -184,21 +184,30 @@ public class interfazProveedores extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tablaproveedores);
 
-        btnguardar.setText("Guardar proveedor");
+        btnguardar.setBackground(new java.awt.Color(25, 80, 180));
+        btnguardar.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnguardar.setForeground(new java.awt.Color(255, 255, 255));
+        btnguardar.setText("Guardar ");
         btnguardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnguardarActionPerformed(evt);
             }
         });
 
-        btneliminar.setText("Eliminar proveedor");
+        btneliminar.setBackground(new java.awt.Color(25, 80, 180));
+        btneliminar.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btneliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btneliminar.setText("Eliminar ");
         btneliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btneliminarActionPerformed(evt);
             }
         });
 
-        btneditar.setText("Editar Proveedor");
+        btneditar.setBackground(new java.awt.Color(25, 80, 180));
+        btneditar.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btneditar.setForeground(new java.awt.Color(255, 255, 255));
+        btneditar.setText("Editar ");
         btneditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btneditarActionPerformed(evt);
@@ -214,12 +223,12 @@ public class interfazProveedores extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(193, 193, 193)
-                .addComponent(btnguardar)
-                .addGap(27, 27, 27)
-                .addComponent(btneliminar)
-                .addGap(26, 26, 26)
-                .addComponent(btneditar)
+                .addGap(144, 144, 144)
+                .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
+                .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 842, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,9 +241,9 @@ public class interfazProveedores extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnguardar)
-                    .addComponent(btneliminar)
-                    .addComponent(btneditar))
+                    .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
         );
