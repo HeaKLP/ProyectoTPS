@@ -44,7 +44,6 @@ public class interfazPrincipal extends javax.swing.JFrame {
         btnProveedor = new javax.swing.JButton();
         btnUsuarios = new javax.swing.JButton();
         btnProducto = new javax.swing.JButton();
-        btnTransaciones = new javax.swing.JButton();
         btnCategorias = new javax.swing.JButton();
         content = new javax.swing.JPanel();
 
@@ -156,24 +155,6 @@ public class interfazPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnTransaciones.setBackground(new java.awt.Color(25, 80, 180));
-        btnTransaciones.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnTransaciones.setForeground(new java.awt.Color(255, 255, 255));
-        btnTransaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/transaccion.png"))); // NOI18N
-        btnTransaciones.setText("TRANSACCIONES");
-        btnTransaciones.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new javax.swing.ImageIcon(getClass().getResource("/Imagenes/inicio.png")))); // NOI18N
-        btnTransaciones.setBorderPainted(false);
-        btnTransaciones.setContentAreaFilled(false);
-        btnTransaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnTransaciones.setFocusPainted(false);
-        btnTransaciones.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnTransaciones.setIconTextGap(10);
-        btnTransaciones.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTransacionesActionPerformed(evt);
-            }
-        });
-
         btnCategorias.setBackground(new java.awt.Color(25, 80, 180));
         btnCategorias.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnCategorias.setForeground(new java.awt.Color(255, 255, 255));
@@ -201,7 +182,6 @@ public class interfazPrincipal extends javax.swing.JFrame {
             .addComponent(btnProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnCategorias, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-            .addComponent(btnTransaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         opcionesLayout.setVerticalGroup(
             opcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,9 +195,7 @@ public class interfazPrincipal extends javax.swing.JFrame {
                 .addComponent(btnProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(btnTransaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addContainerGap(256, Short.MAX_VALUE))
         );
 
         bg.add(opciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 190, 500));
@@ -277,18 +255,6 @@ public class interfazPrincipal extends javax.swing.JFrame {
         content.repaint();
     }//GEN-LAST:event_btnProveedorActionPerformed
 
-    private void btnTransacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransacionesActionPerformed
-        interfaztransaccion pagProveedores = new interfaztransaccion();
-
-        pagProveedores.setSize(860,500);
-        pagProveedores.setLocation(0,0);
-
-        content.removeAll();
-        content.add(pagProveedores, BorderLayout.CENTER);
-        content.revalidate();
-        content.repaint();
-    }//GEN-LAST:event_btnTransacionesActionPerformed
-
     private void btnCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoriasActionPerformed
 interfazCategoria pagCategoria = new interfazCategoria(this);
 
@@ -333,7 +299,6 @@ interfazCategoria pagCategoria = new interfazCategoria(this);
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnProducto;
     private javax.swing.JButton btnProveedor;
-    private javax.swing.JButton btnTransaciones;
     private javax.swing.JButton btnUsuarios;
     private javax.swing.JPanel content;
     private javax.swing.JLabel jLabel1;
@@ -429,7 +394,7 @@ interfazCategoria pagCategoria = new interfazCategoria(this);
         
         //Boton Transaciones
         
-        btnTransaciones.addMouseListener(new java.awt.event.MouseAdapter() {
+  /*      btnTransaciones.addMouseListener(new java.awt.event.MouseAdapter() {
         @Override
         public void mouseEntered(java.awt.event.MouseEvent evt) {
             btnTransaciones.setBackground(new java.awt.Color(50, 150, 255)); // Color al pasar el mouse
@@ -440,7 +405,7 @@ interfazCategoria pagCategoria = new interfazCategoria(this);
         public void mouseExited(java.awt.event.MouseEvent evt) {
             btnTransaciones.setBackground(new java.awt.Color(25, 80, 180)); // Color original
         }
-    });
+    }); */
           
     
     }

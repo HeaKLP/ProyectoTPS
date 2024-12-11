@@ -26,7 +26,7 @@ public class UsuarioBO {
         if ((con = ConexionBD.crearConexionBD()) != null) {
             try {
 
-                String query = "INSERT INTO usuario (docUsuario, nombreUsuario, emailUsuario, contraseñaUsuario, telUsuario, fechIniUsuario, tipoUsuario)" +
+                String query = "INSERT INTO usuario (docUsuario, nombreUsuario, emailUsuario, contrasenaUsuario, telUsuario, fechIniUsuario, tipoUsuario)" +
                                 "VALUES (?, ?, ?, ?, ?, ?, ?);";
                 PreparedStatement ps = con.prepareStatement(query);
                 ps.setInt(1, obj.getDocUsuario());
