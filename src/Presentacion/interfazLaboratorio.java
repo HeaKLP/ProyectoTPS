@@ -62,7 +62,7 @@ public class interfazLaboratorio extends javax.swing.JPanel {
             }
         });
         add(nombreTextField);
-        nombreTextField.setBounds(340, 160, 204, 28);
+        nombreTextField.setBounds(340, 160, 219, 23);
 
         agregarButton.setBackground(new java.awt.Color(25, 80, 180));
         agregarButton.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
