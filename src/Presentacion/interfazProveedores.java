@@ -272,6 +272,7 @@ public class interfazProveedores extends javax.swing.JPanel {
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
       operacion.eliminar(tablaproveedores);
       operacion.cargarDatosEnTabla(tablaproveedores);
+      accionEliminarTXT();
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
@@ -282,6 +283,7 @@ public class interfazProveedores extends javax.swing.JPanel {
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
         guardar();
         operacion.cargarDatosEnTabla(tablaproveedores);
+        accionEliminarTXT();
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void txtnombreProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreProveedoresActionPerformed
@@ -427,6 +429,19 @@ if (filaSeleccionada != -1) {
         }
     });
 }
+ 
+ public void accionEliminarTXT(){
+ 
+// Borra el contenido de los JTextFields
+txtnombreProveedores.setText("");
+txtNITProveedores.setText("");
+txttelProveedores.setText("");
+txtdirProveedores.setText("");
+txtcorreoProveedores.setText("");
+txtNombreContactoProveedor.setText("");
+
+ 
+ }
  
 
 }
