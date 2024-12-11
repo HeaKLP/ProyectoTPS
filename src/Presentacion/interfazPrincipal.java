@@ -196,7 +196,7 @@ public class interfazPrincipal extends javax.swing.JFrame {
         btnEstadisticas.setBackground(new java.awt.Color(25, 80, 180));
         btnEstadisticas.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnEstadisticas.setForeground(new java.awt.Color(255, 255, 255));
-        btnEstadisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/transaccion.png"))); // NOI18N
+        btnEstadisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estadisticas.png"))); // NOI18N
         btnEstadisticas.setActionCommand("ESTADISTICAS");
         btnEstadisticas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new javax.swing.ImageIcon(getClass().getResource("/Imagenes/inicio.png")))); // NOI18N
         btnEstadisticas.setBorderPainted(false);
@@ -476,6 +476,19 @@ interfazCategoria pagCategoria = new interfazCategoria(this);
         @Override
         public void mouseExited(java.awt.event.MouseEvent evt) {
             btnTransaciones.setBackground(new java.awt.Color(25, 80, 180)); // Color original
+        }
+    });
+        
+        btnEstadisticas.addMouseListener(new java.awt.event.MouseAdapter() {
+        @Override
+        public void mouseEntered(java.awt.event.MouseEvent evt) {
+            btnEstadisticas.setBackground(new java.awt.Color(50, 150, 255)); // Color al pasar el mouse
+            btnEstadisticas.setOpaque(true); // Asegura que se vea el cambio de color
+        }
+
+        @Override
+        public void mouseExited(java.awt.event.MouseEvent evt) {
+            btnEstadisticas.setBackground(new java.awt.Color(25, 80, 180)); // Color original
         }
     });
     
