@@ -29,42 +29,59 @@ public class ProveedoresBO {
 
     
     ConexionBD conexionBD = new ConexionBD();
-    Connection conexion = conexionBD.crearConexionBD();
+Connection conexion = conexionBD.crearConexionBD();
 
-    
-    if (conexion != null) {
-        try {
-            
-            String sql = "INSERT INTO proveedor (nombreProveedores, NITProveedores, telProveedores, dirProveedores, correoProveedores, NombreContactoProveedor) "
-                    + "VALUES (?, ?, ?, ?, ?, ?)";
+if (conexion != null) {
+    try {
+        // Depuración de valores para verificar si están vacíos o nulos
+        if (obj.getnombreProveedores() == null || obj.getnombreProveedores().trim().isEmpty() ||
+            obj.getNITProveedores() == null || obj.getNITProveedores().trim().isEmpty() ||
+            obj.gettelProveedores() == null || obj.gettelProveedores().trim().isEmpty() ||
+            obj.getdirProveedores() == null || obj.getdirProveedores().trim().isEmpty() ||
+            obj.getcorreoProveedores() == null || obj.getcorreoProveedores().trim().isEmpty() ||
+            obj.getNombreContactoProveedor() == null || obj.getNombreContactoProveedor().trim().isEmpty()) {
 
+            System.out.println("Error: No se pueden guardar datos vacíos.");
             
-            PreparedStatement ps = conexion.prepareStatement(sql);
-            ps.setString(1, obj.getnombreProveedores());
-            ps.setString(2, obj.getNITProveedores()); 
-            ps.setString(3, obj.gettelProveedores()); 
-            ps.setString(4, obj.getdirProveedores()); 
-            ps.setString(5, obj.getcorreoProveedores()); 
-            ps.setString(6, obj.getNombreContactoProveedor()); 
+            // Mensajes específicos para depuración
+            System.out.println("Verificación de valores:");
+            System.out.println("Nombre: " + obj.getnombreProveedores());
+            System.out.println("NIT: " + obj.getNITProveedores());
+            System.out.println("Teléfono: " + obj.gettelProveedores());
+            System.out.println("Dirección: " + obj.getdirProveedores());
+            System.out.println("Correo: " + obj.getcorreoProveedores());
+            System.out.println("Contacto: " + obj.getNombreContactoProveedor());
             
-
-            
-            ps.executeUpdate();
-            System.out.println("Datos enviados correctamente.");
-
-        } catch (SQLException e) {
-            System.out.println("Error al insertar datos: " + e.getMessage());
-        } finally {
-            try {
-                
-                conexion.close();
-            } catch (SQLException e) {
-                System.out.println("Error al cerrar la conexión: " + e.getMessage());
-            }
+            return; // Finaliza si algún valor es inválido
         }
-    } else {
-        System.out.println("No se pudo conectar a la base de datos.");
+
+        String sql = "INSERT INTO proveedor (nombreProveedores, NITProveedores, telProveedores, dirProveedores, correoProveedores, NombreContactoProveedor) "
+                   + "VALUES (?, ?, ?, ?, ?, ?)";
+
+        PreparedStatement ps = conexion.prepareStatement(sql);
+        ps.setString(1, obj.getnombreProveedores());
+        ps.setString(2, obj.getNITProveedores()); 
+        ps.setString(3, obj.gettelProveedores()); 
+        ps.setString(4, obj.getdirProveedores()); 
+        ps.setString(5, obj.getcorreoProveedores()); 
+        ps.setString(6, obj.getNombreContactoProveedor()); 
+
+        ps.executeUpdate();
+        System.out.println("Datos enviados correctamente.");
+
+    } catch (SQLException e) {
+        System.out.println("Error al insertar datos: " + e.getMessage());
+    } finally {
+        try {
+            conexion.close();
+        } catch (SQLException e) {
+            System.out.println("Error al cerrar la conexión: " + e.getMessage());
+        }
     }
+} else {
+    System.out.println("No se pudo conectar a la base de datos.");
+}
+
  
  }
 
